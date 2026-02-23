@@ -1,7 +1,31 @@
 import { createApp } from 'vue'
 import App from './App.vue'
+//全局安装element-plus
+import ElementPlus from 'element-plus'
+import 'element-plus/dist/index.css'
+//SVG图标配置
+import 'virtual:svg-icons-register'
+//@ts-ignore忽略当前文件ts类型的检测否则有红色提示(打包会失败)
+import zhCn from 'element-plus/dist/locale/zh-cn.mjs'
+//引入自定义组件
+import globleComponent from './components/index';
+//引入路由
+import router from './router'
+//引入仓库
+import pinia from './store'
+let app = createApp(App)
+app.use(globleComponent);
+//注册路由
+app.use(router)
+//安装仓库
+app.use(pinia)
 
-createApp(App).mount('#app')
+
+app.use(ElementPlus, {
+  locale: zhCn,
+})
+
+app.mount('#app')
 
 // import { createApp } from 'vue'
 // import App from '@/App.vue'

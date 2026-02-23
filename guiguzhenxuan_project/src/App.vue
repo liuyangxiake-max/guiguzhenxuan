@@ -1,9 +1,15 @@
 <template>
   <div>
-    <h1>项目根文件</h1>
+    <router-view></router-view>
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import test from '@/views/TEST/test.vue';
+</script>
 
-<style scoped></style>
+<style scoped lang="scss">
+.title {
+  color: $base-color;
+}
+</style>
